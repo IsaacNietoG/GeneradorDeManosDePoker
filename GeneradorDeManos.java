@@ -6,12 +6,6 @@
    - Terminar la clase Juego
 
    Dentro de la clase Mano:
-   - Crear la clase, sus atributos serán un arreglo de 5 cartas.
-   - Crear el constructor por default. Este solamente generará 5 cartas aleatorias pero
-   usando un metodo llamado verificarExistencia para evitar generar cartas repetidas
-   - Crear el metodo verificarExistencia, este metodo será de retorno booleano y recibirá un
-   objeto Carta, va a iterar sobre el arreglo para determinar si ya existe una carta con esas características.
-   (mismo palo mismo valor)
    - Crear el getMano para exportar el arreglo de 5 Cartas.
    - Crear el metodo toString
 
