@@ -5,11 +5,6 @@
    - Terminar la clase {@link Mano}
    - Terminar la clase Juego
 
-   Dentro de la clase Carta:
-   - Crear el constructor por default. El cual generará una carta aleatoria
-   - Crear los get y sets
-   - Crear el toString
-
    Dentro de la clase Mano:
    - Crear la clase, sus atributos serán un arreglo de 5 cartas.
    - Crear el constructor por default. Este solamente generará 5 cartas aleatorias pero
