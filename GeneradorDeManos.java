@@ -19,6 +19,12 @@
  */
 public class GeneradorDeManos {
     public static String stringManoGenerada = "";
+    public static char auxiliarPalo;
+    public static char auxiliarPalo2;
+    public static char auxiliarPalo3;
+    public static int auxiliarValor;
+    public static int auxiliarValor2;
+    public static int auxiliarValor3;
     public static void main(String[] args){
         System.out.println("Bienvenido al generador de manos de Poker.");
         System.out.println("Se generará una mano de cartas de Poker aleatorizada y se te dirá si recibiste alguna mano buena.");
@@ -130,7 +136,7 @@ public class GeneradorDeManos {
     }
 
     public static int checkPoker(Mano mano) {
-
+        Carta[] arregloMano = mano.getMano();
     }
 
     public static int checkFull(Mano mano) {
