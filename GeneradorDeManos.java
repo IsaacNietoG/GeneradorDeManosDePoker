@@ -18,6 +18,7 @@
    - Crear el metodo checkPareja
  */
 public class GeneradorDeManos {
+    public static String stringManoGenerada = "";
     public static void main(String[] args){
         System.out.println("Bienvenido al generador de manos de Poker.");
         System.out.println("Se generará una mano de cartas de Poker aleatorizada y se te dirá si recibiste alguna mano buena.");
@@ -26,7 +27,6 @@ public class GeneradorDeManos {
         do{
         Mano manoGenerada = new Mano();
         int manoEncontrada=0;
-        String stringManoGenerada;
         switch(9){
         case 9:
             manoEncontrada = checkEscaleraReal(manoGenerada);
