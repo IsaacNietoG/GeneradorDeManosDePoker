@@ -5,7 +5,7 @@ public class Carta {
     protected String valorCarta;
     protected int valorNCarta;
     protected char paloCarta;
-    static String[] valoresPosibles = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K" };
+    static String[] valoresPosibles = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     static char[] palosPosibles = {'C', 'D', 'T', 'P'};
     protected String color;
 
@@ -91,6 +91,10 @@ public class Carta {
             System.out.println(
                     "La operación no se pudo realizar, ya sea porque el valor que quería cambiar ya era el mismo o porque ingresó un valor inválido para esta operación");
         }
+    }
+
+    public String getColor(){
+        return color;
     }
 
     public String toString(){
