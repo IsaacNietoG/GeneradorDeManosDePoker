@@ -68,6 +68,23 @@ public class GeneradorDeManos {
     }
 
     public static int checkEscaleraReal(Mano mano){
+        /**
+           Verifica si la mano recibida es una Escalera Real.
+
+           Para esto, primero verifica que todas las cartas sean del mismo palo,
+           para hacerlo de forma rápida se comparan los palos de todas las cartas con el palo de
+           la primera.
+
+           Luego, se verifica si la mano recibida efectitvamente coincide con el orden deseado para
+           una escalera real (A,10,J,Q,K)
+
+           En cada verificación se incluye un return 0 en caso fallido. De esta forma, solo llegamos
+           al return 1 si todas las verificaciones han sido pasadas correctamente.
+
+           @param mano la mano de cartas a analizar
+           @return un int que representa si la mano recibida coincide con lo buscado. Ademas, altera
+           la variable global stringManoGenerada si la mano coincide con lo buscado.
+         */
         Carta[] arregloMano = mano.getMano();
         char palo = arregloMano[0].getPaloCarta();
         //Verifica si todas las cartas son del mismo color.
