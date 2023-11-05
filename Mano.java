@@ -45,4 +45,15 @@ public class Mano {
         }
         return false;
     }
+
+    public Carta[] getMano(){
+        return manoCartas;
+    }
+    public String toString(){
+        String toString="";
+        for (int i = 0; i < manoCartas.length;i++){
+            toString += manoCartas[i].toString();
+        }
+        return toString;
+    }
 }

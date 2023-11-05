@@ -5,9 +5,6 @@
    - Terminar la clase {@link Mano}
    - Terminar la clase Juego
 
-   Dentro de la clase Mano:
-   - Crear el getMano para exportar el arreglo de 5 Cartas.
-   - Crear el metodo toString
 
    Dentro de la clase Juego:
    - Crear el main. El cual generará una mano (con su constructor) y va a iterar sobre ella para verificar si
