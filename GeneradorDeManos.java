@@ -22,8 +22,11 @@ public class GeneradorDeManos {
         System.out.println("Bienvenido al generador de manos de Poker.");
         System.out.println("Se generará una mano de cartas de Poker aleatorizada y se te dirá si recibiste alguna mano buena.");
 
+        int debug =100;
+        do{
         Mano manoGenerada = new Mano();
         int manoEncontrada=0;
+        String stringManoGenerada;
         switch(9){
         case 9:
             manoEncontrada = checkEscaleraReal(manoGenerada);
@@ -55,6 +58,13 @@ public class GeneradorDeManos {
         case 0:
             manoEncontrada = 0;
         }
+        System.out.println(manoGenerada.toString());
+        if(manoEncontrada !=0) System.out.println("La mano generada es una: " + stringManoGenerada);
+        else System.out.println("No tuviste una buena mano");
+
+        debug--;
+        }while(debug !=0);
+
     }
 
     public static int checkEscaleraReal(Mano mano){
