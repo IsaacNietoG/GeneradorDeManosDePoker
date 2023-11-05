@@ -110,7 +110,23 @@ public class GeneradorDeManos {
     }
 
     public static int checkEscaleraColor(Mano mano){
-        
+        Carta[] arregloMano = mano.getMano();
+        char palo = arregloMano[0].getPaloCarta();
+        // Verifica si todas las cartas son del mismo color.
+        // Si alguna carta es de un palo distinto retorna 0 directo.
+        for (int i = 0; i < arregloMano.length; i++) {
+            if (arregloMano[i].getPaloCarta() != palo) {
+                return 0;
+            }
+        }
+        for(int i=1;i<arregloMano.length;i++){
+            int valorBuscado = arregloMano[i-1].getValorNumerico()+1;
+            if(arregloMano[i].getValorNumerico()!=valorBuscado)
+                return 0;
+        }
+
+        stringManoGenerada = "Escalera de color de " + palo;
+        return 1;
     }
 
     public static int checkPoker(Mano mano) {
