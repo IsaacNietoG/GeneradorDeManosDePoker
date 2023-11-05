@@ -68,7 +68,28 @@ public class GeneradorDeManos {
     }
 
     public static int checkEscaleraReal(Mano mano){
-        
+        Carta[] arregloMano = mano.getMano();
+        char palo = arregloMano[0].getPaloCarta();
+        //Verifica si todas las cartas son del mismo color.
+        //Si alguna carta es de un palo distinto retorna 0 directo.
+        for(int i = 0;i<arregloMano.length; i++){
+            if(arregloMano[i].getPaloCarta()!=palo){
+                return 0;
+            }
+        }
+        if(arregloMano[0].getValorNumerico()!=1)
+            return 0;
+        if (arregloMano[1].getValorNumerico() != 10)
+            return 0;
+        if (arregloMano[2].getValorNumerico() != 11)
+            return 0;
+        if (arregloMano[3].getValorNumerico() != 12)
+            return 0;
+        if (arregloMano[4].getValorNumerico() != 13)
+            return 0;
+
+        stringManoGenerada = "Escalera real de " + palo;
+        return 1;
     }
 
     public static int checkEscaleraColor(Mano mano){
