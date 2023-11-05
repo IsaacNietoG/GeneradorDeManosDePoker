@@ -1,11 +1,6 @@
 /**
    TO-DO LIST
 
-   - Terminar la clase {@link Carta}
-   - Terminar la clase {@link Mano}
-   - Terminar la clase Juego
-
-
    Dentro de la clase Juego:
    - Crear el main. El cual generará una mano (con su constructor) y va a iterar sobre ella para verificar si
    entra dentro de alguna de las manos esperadas. Aplicará un metodo para cada mano posible y retornará un
