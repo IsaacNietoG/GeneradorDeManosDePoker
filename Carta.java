@@ -3,6 +3,7 @@ public class Carta {
 
     protected Random randomizador = new Random();
     protected String valorCarta;
+    protected int valorNCarta;
     protected char paloCarta;
     static String[] valoresPosibles = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K" };
     static char[] palosPosibles = {'C', 'D', 'T', 'P'};
@@ -16,10 +17,15 @@ public class Carta {
 
            @return un objeto de tipo Carta con palo y valor aleatorizado.
          */
-        valorCarta = valoresPosibles[randomizador.nextInt(12)];
+        int random = randomizador.nextInt(12);
+        valorNCarta = random+1;
+        valorCarta = valoresPosibles[random];
         paloCarta = palosPosibles[randomizador.nextInt(3)];
     }
 
+    public int getValorNumerico(){
+        return valorNCarta;
+    }
     public String getValorCarta(){
         return valorCarta;
     }
@@ -41,6 +47,7 @@ public class Carta {
         String temp = this.valorCarta;
         for(int i=0;i<valoresPosibles.length; i++){
             if(valorCarta.equals(valoresPosibles[i])){
+                this.valorNCarta = i + 1;
                 this.valorCarta = valorCarta;
                 System.out.println("Operacion Exitosa");
                 break;
@@ -75,7 +82,7 @@ public class Carta {
     }
 
     public String toString(){
-        return "Carta = " + valorCarta+ paloCarta;
+        return "Carta[" + valorCarta+ paloCarta+"]";
     }
 }
 
