@@ -116,6 +116,22 @@ public class GeneradorDeManos {
     }
 
     public static int checkEscaleraColor(Mano mano){
+        /**
+         * Verifica si la mano recibida es una escalera de color.
+         * 
+         * Primero verifica si todas las cartas son del mismo palo con la misma tecnica
+         * que usa
+         * checkEscaleraReal.
+         *
+         * Luego, verifica si las cartas de la mano efectivamente son consecutivas en su
+         * valor.
+         *
+         * @param mano la mano de cartas a analizar
+         * @return un int que representa si la mano recibida coincide con lo buscado.
+         *         Ademas, altera
+         *         la variable global stringManoGenerada si la mano coincide con lo
+         *         buscado.
+         */
         Carta[] arregloMano = mano.getMano();
         char palo = arregloMano[0].getPaloCarta();
         // Verifica si todas las cartas son del mismo color.
@@ -136,11 +152,93 @@ public class GeneradorDeManos {
     }
 
     public static int checkPoker(Mano mano) {
+        /**
+         * Verifica si la mano recibida es un poker.
+         * 
+         * Guarda el valor de la primera y ultima carta y los compara con el resto de
+         * cartas de la mano
+         * guarda el numero de coincidencias de valores en dos variables contador, y si
+         * alguna de estas variables
+         * contador es igual a 4 entonces retorna el resultado necesario.
+         * 
+         * No se considera el caso en el que alguno de los contadores llegue a 5 porque
+         * es imposible de lograr
+         * en la implementacion actual pues solo hay 4 palos y no existe repetición de
+         * cartas.
+         * 
+         * @param mano la mano de cartas a analizar
+         * @return un int que representa si la mano recibida coincide con lo buscado.
+         *         Ademas, altera
+         *         la variable global stringManoGenerada si la mano coincide con lo
+         *         buscado.
+         */
         Carta[] arregloMano = mano.getMano();
+        auxiliarPalo = arregloMano[0].getPaloCarta();
+        auxiliarPalo2 = arregloMano[4].getPaloCarta();
+        auxiliarValor = arregloMano[0].getValorNumerico();
+        auxiliarValor2 = arregloMano[4].getValorNumerico();
+        int contador1=0;
+        int contador2=0;
+        for(int i=0;i<arregloMano.length;i++){
+            if(arregloMano[i].getValorNumerico()==auxiliarValor)
+                contador1++;
+            if(arregloMano[i].getValorNumerico() ==auxiliarValor2)
+                contador2++;
+        }
+        if(contador1 == 4){
+            stringManoGenerada = "Poker de " + auxiliarPalo;
+            return 1;
+        }
+        if(contador2 == 4){
+            stringManoGenerada = "Poker de " + auxiliarPalo2;
+            return 1;
+        }
+        return 0;
     }
 
     public static int checkFull(Mano mano) {
-
+        /**
+         * Verifica si la mano recibida es un full.
+         * 
+         * Guarda el valor de la primera y ultima carta y los compara con el resto de
+         * cartas de la mano
+         * guarda el numero de coincidencias de valores en dos variables contador, y si
+         * los contadores llegan a 3 y 2 (no importa cuales) entonces tenemos lo que
+         * buscamos.
+         * 
+         * No se considera el caso en el que alguno de los contadores llegue a 5 porque
+         * es imposible de lograr
+         * en la implementacion actual pues solo hay 4 palos y no existe repetición de
+         * cartas.
+         * 
+         * @param mano la mano de cartas a analizar
+         * @return un int que representa si la mano recibida coincide con lo buscado.
+         *         Ademas, altera
+         *         la variable global stringManoGenerada si la mano coincide con lo
+         *         buscado.
+         */
+        Carta[] arregloMano = mano.getMano();
+        auxiliarPalo = arregloMano[0].getPaloCarta();
+        auxiliarPalo2 = arregloMano[4].getPaloCarta();
+        auxiliarValor = arregloMano[0].getValorNumerico();
+        auxiliarValor2 = arregloMano[4].getValorNumerico();
+        int contador1 = 0;
+        int contador2 = 0;
+        for (int i = 0; i < arregloMano.length; i++) {
+            if (arregloMano[i].getValorNumerico() == auxiliarValor)
+                contador1++;
+            if (arregloMano[i].getValorNumerico() == auxiliarValor2)
+                contador2++;
+        }
+        if (contador1 == 3 && contador2 == 2) {
+            stringManoGenerada = "Full de " + auxiliarPalo + " y " + auxiliarPalo2;
+            return 1;
+        }
+        if (contador2 == 2 && contador1 == 3) {
+            stringManoGenerada = "Full de " + auxiliarPalo2 + " y " + auxiliarPalo;
+            return 1;
+        }
+        return 0;
     }
 
     public static int checkColor(Mano mano) {
