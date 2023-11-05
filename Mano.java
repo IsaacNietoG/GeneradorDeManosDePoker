@@ -6,13 +6,15 @@ public class Mano {
            Crea un arreglo de cinco Cartas aleatorizado. Tiene la restriccion de que
            no puede albergar cartas repetidas. Esto para emular que en el juego de poker
            real no existen cartas repetidas.
-
+        
            Primero verifica si la carta generada ya existe. (con verificarExistencia)
            y si este es el caso no la agrega a la mano. De otra manera continua agregando
            Cartas nuevas al arreglo hasta que se encuentre lleno. Cuando se encuentra lleno
            la flag manoCompletada se deja en true para dejar de construir la baraja.
-
-           @return un objeto Mano con su arreglo de Cartas aleatorizado.
+        
+           Luego, pasamos la mano por un bubbleSort para mejor manipulacion posterior.
+        
+           @return un objeto Mano con su arreglo de Cartas aleatorizado y organizado por valor.
          */
         boolean manoCompletada = false;
         while(!manoCompletada){
@@ -27,6 +29,7 @@ public class Mano {
                 }
             }
         }
+        bubbleSort();
     }
 
     public boolean verificarExistencia(Carta carta){
@@ -55,5 +58,23 @@ public class Mano {
             toString += manoCartas[i].toString();
         }
         return toString;
+    }
+
+    public void bubbleSort(){
+        /**
+           Acomoda el arreglo de Cartas de menor a mayor valor numérico. Esto lo hago para
+           ahorrar un poco de tiempo en los metodos de checkeo de GeneradorDeManos y para
+           un mejor display al usuario.
+         */
+        Carta temporal;
+        for(int i=0; i<manoCartas.length;i++){
+            for(int j=1; j<manoCartas.length-i;j++){
+                if(manoCartas[j-1].getValorNumerico() > manoCartas[j].getValorNumerico()){
+                    temporal = manoCartas[j - 1];
+                    manoCartas[j - 1] = manoCartas[j];
+                    manoCartas[j] = temporal;
+                }
+            }
+        }
     }
 }
