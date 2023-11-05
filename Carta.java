@@ -7,6 +7,7 @@ public class Carta {
     protected char paloCarta;
     static String[] valoresPosibles = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K" };
     static char[] palosPosibles = {'C', 'D', 'T', 'P'};
+    protected String color;
 
     public Carta(){
         /**
@@ -17,10 +18,21 @@ public class Carta {
 
            @return un objeto de tipo Carta con palo y valor aleatorizado.
          */
-        int random = randomizador.nextInt(12);
-        valorNCarta = random+1;
-        valorCarta = valoresPosibles[random];
-        paloCarta = palosPosibles[randomizador.nextInt(3)];
+        int randomValor = randomizador.nextInt(13);
+        int randomPalo = randomizador.nextInt(4);
+        valorNCarta = randomValor+1;
+        valorCarta = valoresPosibles[randomValor];
+        paloCarta = palosPosibles[randomPalo];
+        switch(randomPalo){
+        case 0:
+        case 1:
+            color = "Rojo";
+            break;
+        case 2:
+        case 3:
+            color = "Negro";
+            break;
+        }
     }
 
     public int getValorNumerico(){
