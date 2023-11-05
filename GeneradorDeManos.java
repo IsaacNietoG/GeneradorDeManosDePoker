@@ -242,10 +242,54 @@ public class GeneradorDeManos {
     }
 
     public static int checkColor(Mano mano) {
+        /**
+           Verifica si la mano recibida es una Color
 
+           Solamente verifica si todas las cartas son del mismo color.
+
+           @param mano la mano de cartas a analizar.
+           @return un int que representea si la mano recibida coincide con lo buscado.
+           ademas altera la variable global stringManoGenerada si la mano coincide en lo buscado.
+         */
+        Carta[] arregloMano = mano.getMano();
+        String color = arregloMano[0].getColor();
+        // Verifica si todas las cartas son del mismo color.
+        // Si alguna carta es de un color distinto retorna 0 directo.
+        for (int i = 0; i < arregloMano.length; i++) {
+            if (!arregloMano[i].getColor().equals(color)) {
+                return 0;
+            }
+        }
+        stringManoGenerada = "Color de " + color;
+        return 1;
     }
 
     public static int checkEscalera(Mano mano) {
+        /**
+         * Verifica si la mano recibida es una Escalera.
+         * 
+         * Recicla el procedimiento de checkEscaleraColor pero sin la verificacion
+         * de que sean del mismo palo.
+         *
+         * @param mano la mano de cartas a analizar.
+         * @return un int que representea si la mano recibida coincide con lo buscado.
+         *         ademas altera la variable global stringManoGenerada si la mano
+         *         coincide en lo buscado.
+         * 
+         */
+        Carta[] arregloMano = mano.getMano();
+        if(arregloMano[0].getValorNumerico()==1 && arregloMano[1].getValorNumerico() ==10 && arregloMano[2].getValorNumerico() == 11 && arregloMano[3].getValorNumerico() == 12 && arregloMano[4].getValorNumerico() == 13){
+            stringManoGenerada = "Escalera";
+            return 1;
+        }
+        for (int i = 1; i < arregloMano.length; i++) {
+            int valorBuscado = arregloMano[i - 1].getValorNumerico() + 1;
+            if (arregloMano[i].getValorNumerico() != valorBuscado)
+                return 0;
+        }
+
+        stringManoGenerada = "Escalera";
+        return 1;
 
     }
 
