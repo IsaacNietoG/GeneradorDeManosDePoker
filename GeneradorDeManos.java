@@ -1,21 +1,5 @@
 /**
-   TO-DO LIST
 
-   Dentro de la clase Juego:
-   - Crear el main. El cual generará una mano (con su constructor) y va a iterar sobre ella para verificar si
-   entra dentro de alguna de las manos esperadas. Aplicará un metodo para cada mano posible y retornará un
-   display de la mano generada junto con el respectivo mensaje dependiendo de qué tipo de mano es la mano generada.
-   - Crear los metodos para verificar manos. Estos serán metodos que iterarán sobre cada carta del arreglo para
-   verificar si se crean las condiciones esperadas dentro del mismo para retornar que efectivamente la mano es de ese tipo
-   - Crear el metodo checkEscaleraReal
-   - Crear el metodo checkEscaleraColor
-   - Crear el metodo checkPocker
-   - Crear el metodo checkFull
-   - Crear el metodo checkColor
-   - Crear el metodo checkEscalera
-   - Crear el metodo checkTrio
-   - Crear el metodo checkDoblePareja
-   - Crear el metodo checkPareja
  */
 public class GeneradorDeManos {
     public static String stringManoGenerada = "";
@@ -28,11 +12,13 @@ public class GeneradorDeManos {
     public static void main(String[] args){
         System.out.println("Bienvenido al generador de manos de Poker.");
         System.out.println("Se generará una mano de cartas de Poker aleatorizada y se te dirá si recibiste alguna mano buena.");
+        int manoEncontrada = 0;
 
-        int debug =100;
+        int debug = Integer.valueOf(args[0]);
         do{
+
         Mano manoGenerada = new Mano();
-        int manoEncontrada=0;
+        manoEncontrada=0;
         switch(9){
         case 9:
             manoEncontrada = checkEscaleraReal(manoGenerada);
@@ -69,8 +55,7 @@ public class GeneradorDeManos {
         else System.out.println("No tuviste una buena mano");
 
         System.out.println();
-        debug--;
-        }while(debug !=0);
+        }while(debug != manoEncontrada);
 
     }
 
@@ -113,7 +98,7 @@ public class GeneradorDeManos {
             return 0;
 
         stringManoGenerada = "Escalera real de " + palo;
-        return 1;
+        return 9;
     }
 
     public static int checkEscaleraColor(Mano mano){
@@ -149,7 +134,7 @@ public class GeneradorDeManos {
         }
 
         stringManoGenerada = "Escalera de color de " + palo;
-        return 1;
+        return 8;
     }
 
     public static int checkPoker(Mano mano) {
@@ -188,11 +173,11 @@ public class GeneradorDeManos {
         }
         if(contador1 == 4){
             stringManoGenerada = "Poker de " + auxiliarPalo;
-            return 1;
+            return 7;
         }
         if(contador2 == 4){
             stringManoGenerada = "Poker de " + auxiliarPalo2;
-            return 1;
+            return 7;
         }
         return 0;
     }
@@ -233,11 +218,11 @@ public class GeneradorDeManos {
         }
         if (contador1 == 3 && contador2 == 2) {
             stringManoGenerada = "Full de " + auxiliarPalo + " y " + auxiliarPalo2;
-            return 1;
+            return 6;
         }
         if (contador2 == 2 && contador1 == 3) {
             stringManoGenerada = "Full de " + auxiliarPalo2 + " y " + auxiliarPalo;
-            return 1;
+            return 6;
         }
         return 0;
     }
@@ -262,7 +247,7 @@ public class GeneradorDeManos {
             }
         }
         stringManoGenerada = "Color de " + color;
-        return 1;
+        return 5;
     }
 
     public static int checkEscalera(Mano mano) {
@@ -290,7 +275,7 @@ public class GeneradorDeManos {
         }
 
         stringManoGenerada = "Escalera";
-        return 1;
+        return 4;
 
     }
 
@@ -339,15 +324,15 @@ public class GeneradorDeManos {
         if(contador == 3 || contador2 == 3 || contador3 == 3){
             if(contador == 3){
                 stringManoGenerada = "Trio de " + auxiliarValor;
-                return 1;
+                return 3;
             }
             if(contador2 == 3){
                 stringManoGenerada = "Trio de " + auxiliarValor2;
-                return 1;
+                return 3;
             }
             if (contador3 == 3) {
                 stringManoGenerada = "Trio de " + auxiliarValor3;
-                return 1;
+                return 3;
             }
         }
         return 0;
@@ -397,31 +382,31 @@ public class GeneradorDeManos {
         if(contador == 2){
             if(contador2 == 2){
                 stringManoGenerada = "Doble par de " + auxiliarValor + " y " + auxiliarValor2;
-                return 1;
+                return 2;
             }
             if(contador3 == 2){
                 stringManoGenerada = "Doble par de " + auxiliarValor + " y " + auxiliarValor3;
-                return 1;
+                return 2;
             }
         }
         if (contador2 == 2) {
             if (contador == 2) {
                 stringManoGenerada = "Doble par de " + auxiliarValor2 + " y " + auxiliarValor;
-                return 1;
+                return 2;
             }
             if (contador3 == 2) {
                 stringManoGenerada = "Doble par de " + auxiliarValor2 + " y " + auxiliarValor3;
-                return 1;
+                return 2;
             }
         }
         if (contador3 == 2) {
             if (contador2 == 2) {
                 stringManoGenerada = "Doble par de " + auxiliarValor3 + " y " + auxiliarValor2;
-                return 1;
+                return 2;
             }
             if (contador == 2) {
                 stringManoGenerada = "Doble par de " + auxiliarValor3 + " y " + auxiliarValor;
-                return 1;
+                return 2;
             }
         }
         return 0;
