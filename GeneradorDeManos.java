@@ -294,11 +294,56 @@ public class GeneradorDeManos {
     }
 
     public static int checkTrio(Mano mano) {
+        Carta[] arregloMano = mano.getMano();
+        auxiliarValor2=0;
+        auxiliarValor3=0;
+        auxiliarPalo = arregloMano[0].getPaloCarta();
+        auxiliarValor = arregloMano[0].getValorNumerico();
+        int contador=0;
+        int contador2=0;
+        int contador3=0;
+        for(int i = 0; i<arregloMano.length; i++){
+            if(arregloMano[i].getValorNumerico() != auxiliarValor){
+                if(arregloMano[i].getValorNumerico() != auxiliarValor2 && auxiliarValor2!=0){
+                    auxiliarPalo3 = arregloMano[i].getPaloCarta();
+                    auxiliarValor3 = arregloMano[i].getValorNumerico();
+                }else{
+                    auxiliarValor2 = arregloMano[i].getValorNumerico();
+                    auxiliarPalo2 = arregloMano[i].getPaloCarta();
+                }
+            }
+        }
 
+        for(int i = 0; i<arregloMano.length; i++){
+            if(arregloMano[i].getValorNumerico()==auxiliarValor){
+                contador++;
+            }else if(arregloMano[i].getValorNumerico()==auxiliarValor2){
+                contador2++;
+            }else if(arregloMano[i].getValorNumerico()==auxiliarValor3){
+                contador3++;
+            }
+        }
+
+        if(contador == 3 || contador2 == 3 || contador3 == 3){
+            if(contador == 3){
+                stringManoGenerada = "Trio de " + auxiliarPalo;
+                return 1;
+            }
+            if(contador2 == 3){
+                stringManoGenerada = "Trio de " + auxiliarPalo2;
+                return 1;
+            }
+            if (contador3 == 3) {
+                stringManoGenerada = "Trio de " + auxiliarPalo3;
+                return 1;
+            }
+        }else{
+            return 0;
+        }
     }
 
     public static int checkDoblePareja(Mano mano) {
-
+        
     }
 
     public static int checkPareja(Mano mano) {
