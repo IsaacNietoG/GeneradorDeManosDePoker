@@ -217,11 +217,11 @@ public class GeneradorDeManos {
                 contador2++;
         }
         if (contador1 == 3 && contador2 == 2) {
-            stringManoGenerada = "Full de " + auxiliarPalo + " y " + auxiliarPalo2;
+            stringManoGenerada = "Full de " + arregloMano[0].getValorCarta() + " y " + arregloMano[4].getValorCarta();
             return 6;
         }
         if (contador2 == 2 && contador1 == 3) {
-            stringManoGenerada = "Full de " + auxiliarPalo2 + " y " + auxiliarPalo;
+            stringManoGenerada = "Full de " + arregloMano[4].getValorCarta() + " y " + arregloMano[0].getValorCarta();
             return 6;
         }
         return 0;
