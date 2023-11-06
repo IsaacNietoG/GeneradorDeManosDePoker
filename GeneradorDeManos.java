@@ -68,6 +68,7 @@ public class GeneradorDeManos {
         if(manoEncontrada !=0) System.out.println("La mano generada es una: " + stringManoGenerada);
         else System.out.println("No tuviste una buena mano");
 
+        System.out.println();
         debug--;
         }while(debug !=0);
 
