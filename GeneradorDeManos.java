@@ -294,6 +294,16 @@ public class GeneradorDeManos {
     }
 
     public static int checkTrio(Mano mano) {
+        /**
+           Verifica si la mano recibida es un Trio
+
+           Para esto primero guarda tres valores distintos (la maxima cantidad posible de valores distintos
+           en una mano Trio) y guarda la cantidad de coincidencias con estos valores. Si alguna de estas
+           coincidencias llega a 3 entonces tenemos un trio y lo retorna como tal.
+
+           @param mano la mano que analizará
+           @return lo mismo que los demas metodos check
+         */
         Carta[] arregloMano = mano.getMano();
         auxiliarValor2=0;
         auxiliarValor3=0;
@@ -342,7 +352,77 @@ public class GeneradorDeManos {
     }
 
     public static int checkDoblePareja(Mano mano) {
+        /**
+           Verifica si la mano recibida es un Doble Par
 
+           Para esto primero guarda tres valores distintos (la maxima cantidad posible de valores distintos
+           en una mano Doble Par) y guarda la cantidad de coincidencias con estos valores. Luego retorna si existen
+           dos contadores que hayan llegado a 2.
+
+           @param mano la mano que analizará
+           @return lo mismo que los demas metodos check
+         */
+        Carta[] arregloMano = mano.getMano();
+        auxiliarValor2=0;
+        auxiliarValor3=0;
+        auxiliarPalo = arregloMano[0].getPaloCarta();
+        auxiliarValor = arregloMano[0].getValorNumerico();
+        int contador=0;
+        int contador2=0;
+        int contador3=0;
+        for(int i = 0; i<arregloMano.length; i++){
+            if(arregloMano[i].getValorNumerico() != auxiliarValor){
+                if(arregloMano[i].getValorNumerico() != auxiliarValor2 && auxiliarValor2!=0){
+                    auxiliarPalo3 = arregloMano[i].getPaloCarta();
+                    auxiliarValor3 = arregloMano[i].getValorNumerico();
+                }else{
+                    auxiliarValor2 = arregloMano[i].getValorNumerico();
+                    auxiliarPalo2 = arregloMano[i].getPaloCarta();
+                }
+            }
+        }
+
+        for(int i = 0; i<arregloMano.length; i++){
+            if(arregloMano[i].getValorNumerico()==auxiliarValor){
+                contador++;
+            }else if(arregloMano[i].getValorNumerico()==auxiliarValor2){
+                contador2++;
+            }else if(arregloMano[i].getValorNumerico()==auxiliarValor3){
+                contador3++;
+            }
+        }
+
+        if(contador == 2){
+            if(contador2 == 2){
+                stringManoGenerada = "Doble par de " + auxiliarPalo + " y " + auxiliarPalo2;
+                return 1;
+            }
+            if(contador3 == 2){
+                stringManoGenerada = "Doble par de " + auxiliarPalo + " y " + auxiliarPalo3;
+                return 1;
+            }
+        }
+        if (contador2 == 2) {
+            if (contador == 2) {
+                stringManoGenerada = "Doble par de " + auxiliarPalo2 + " y " + auxiliarPalo;
+                return 1;
+            }
+            if (contador3 == 2) {
+                stringManoGenerada = "Doble par de " + auxiliarPalo2 + " y " + auxiliarPalo3;
+                return 1;
+            }
+        }
+        if (contador3 == 2) {
+            if (contador2 == 2) {
+                stringManoGenerada = "Doble par de " + auxiliarPalo3 + " y " + auxiliarPalo2;
+                return 1;
+            }
+            if (contador == 2) {
+                stringManoGenerada = "Doble par de " + auxiliarPalo3 + " y " + auxiliarPalo;
+                return 1;
+            }
+        }
+        return 0;
     }
 
     public static int checkPareja(Mano mano) {
