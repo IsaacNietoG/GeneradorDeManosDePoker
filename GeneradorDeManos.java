@@ -337,13 +337,12 @@ public class GeneradorDeManos {
                 stringManoGenerada = "Trio de " + auxiliarPalo3;
                 return 1;
             }
-        }else{
-            return 0;
         }
+        return 0;
     }
 
     public static int checkDoblePareja(Mano mano) {
-        
+
     }
 
     public static int checkPareja(Mano mano) {
