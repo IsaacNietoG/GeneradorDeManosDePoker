@@ -297,7 +297,8 @@ public class GeneradorDeManos {
         /**
            Verifica si la mano recibida es un Trio
 
-           Para esto primero guarda tres valores distintos (la maxima cantidad posible de valores distintos
+           Para esto
+           primero guarda tres valores distintos (la maxima cantidad posible de valores distintos
            en una mano Trio) y guarda la cantidad de coincidencias con estos valores. Si alguna de estas
            coincidencias llega a 3 entonces tenemos un trio y lo retorna como tal.
 
@@ -426,6 +427,15 @@ public class GeneradorDeManos {
     }
 
     public static int checkPareja(Mano mano) {
-
+        Carta[] arregloMano = mano.getMano();
+        for(int i=0; i<arregloMano.length; i++){
+            for(int j = i+1; i< arregloMano.length; j++){
+                if(arregloMano[i].getValorNumerico()==arregloMano[j].getValorNumerico()){
+                    stringManoGenerada = "Par de " + arregloMano[i].getPaloCarta();
+                    return 1;
+                }
+            }
+        }
+        return 0;
     }
 }
