@@ -58,7 +58,7 @@ public class Mano {
     public String toString(){
         String toString="";
         for (int i = 0; i < manoCartas.length;i++){
-            toString += manoCartas[i].toString();
+            toString += manoCartas[i].toString() + " ";
         }
         return toString;
     }
