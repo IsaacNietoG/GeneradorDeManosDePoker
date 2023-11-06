@@ -172,11 +172,11 @@ public class GeneradorDeManos {
                 contador2++;
         }
         if(contador1 == 4){
-            stringManoGenerada = "Poker de " + auxiliarPalo;
+            stringManoGenerada = "Poker de " + arregloMano[0].getValorCarta();
             return 7;
         }
         if(contador2 == 4){
-            stringManoGenerada = "Poker de " + auxiliarPalo2;
+            stringManoGenerada = "Poker de " + arregloMano[4].getValorCarta();
             return 7;
         }
         return 0;
