@@ -42,8 +42,11 @@ public class Mano {
            @return la posible existencia de una carta identica en el arreglo.
          */
         for(int i=0; i<manoCartas.length; i++){
-            if((manoCartas[i].getPaloCarta()==carta.getPaloCarta()) && (manoCartas[i].getValorCarta().equals(carta.getValorCarta()))){
-                return true;
+            if (manoCartas[i] != null) {
+                if ((manoCartas[i].getPaloCarta() == carta.getPaloCarta())
+                        && (manoCartas[i].getValorCarta().equals(carta.getValorCarta()))) {
+                    return true;
+                }
             }
         }
         return false;
