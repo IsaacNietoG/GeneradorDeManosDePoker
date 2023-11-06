@@ -338,15 +338,15 @@ public class GeneradorDeManos {
 
         if(contador == 3 || contador2 == 3 || contador3 == 3){
             if(contador == 3){
-                stringManoGenerada = "Trio de " + auxiliarPalo;
+                stringManoGenerada = "Trio de " + auxiliarValor;
                 return 1;
             }
             if(contador2 == 3){
-                stringManoGenerada = "Trio de " + auxiliarPalo2;
+                stringManoGenerada = "Trio de " + auxiliarValor2;
                 return 1;
             }
             if (contador3 == 3) {
-                stringManoGenerada = "Trio de " + auxiliarPalo3;
+                stringManoGenerada = "Trio de " + auxiliarValor3;
                 return 1;
             }
         }
@@ -396,31 +396,31 @@ public class GeneradorDeManos {
 
         if(contador == 2){
             if(contador2 == 2){
-                stringManoGenerada = "Doble par de " + auxiliarPalo + " y " + auxiliarPalo2;
+                stringManoGenerada = "Doble par de " + auxiliarValor + " y " + auxiliarValor2;
                 return 1;
             }
             if(contador3 == 2){
-                stringManoGenerada = "Doble par de " + auxiliarPalo + " y " + auxiliarPalo3;
+                stringManoGenerada = "Doble par de " + auxiliarValor + " y " + auxiliarValor3;
                 return 1;
             }
         }
         if (contador2 == 2) {
             if (contador == 2) {
-                stringManoGenerada = "Doble par de " + auxiliarPalo2 + " y " + auxiliarPalo;
+                stringManoGenerada = "Doble par de " + auxiliarValor2 + " y " + auxiliarValor;
                 return 1;
             }
             if (contador3 == 2) {
-                stringManoGenerada = "Doble par de " + auxiliarPalo2 + " y " + auxiliarPalo3;
+                stringManoGenerada = "Doble par de " + auxiliarValor2 + " y " + auxiliarValor3;
                 return 1;
             }
         }
         if (contador3 == 2) {
             if (contador2 == 2) {
-                stringManoGenerada = "Doble par de " + auxiliarPalo3 + " y " + auxiliarPalo2;
+                stringManoGenerada = "Doble par de " + auxiliarValor3 + " y " + auxiliarValor2;
                 return 1;
             }
             if (contador == 2) {
-                stringManoGenerada = "Doble par de " + auxiliarPalo3 + " y " + auxiliarPalo;
+                stringManoGenerada = "Doble par de " + auxiliarValor3 + " y " + auxiliarValor;
                 return 1;
             }
         }
@@ -432,7 +432,7 @@ public class GeneradorDeManos {
         for(int i=0; i<arregloMano.length; i++){
             for(int j = i+1; j< arregloMano.length; j++){
                 if(arregloMano[i].getValorNumerico()==arregloMano[j].getValorNumerico()){
-                    stringManoGenerada = "Par de " + arregloMano[i].getPaloCarta();
+                    stringManoGenerada = "Par de " + arregloMano[i].getValorNumerico();
                     return 1;
                 }
             }
