@@ -1,6 +1,3 @@
-/**
-
- */
 public class GeneradorDeManos {
     public static String stringManoGenerada = "";
     public static char auxiliarPalo;
@@ -14,8 +11,11 @@ public class GeneradorDeManos {
         System.out.println("Se generará una mano de cartas de Poker aleatorizada y se te dirá si recibiste alguna mano buena.");
         int manoEncontrada = 0;
 
-        int debug = Integer.valueOf(args[0]);
-        do{
+        //Las lineas comentadas son una estructura que usé para depurar errores. Repiten el programa hasta encontrar
+        //la mano buscada.
+
+        //int debug = Integer.valueOf(args[0]);
+        //do{
 
         Mano manoGenerada = new Mano();
         manoEncontrada=0;
@@ -54,8 +54,8 @@ public class GeneradorDeManos {
         if(manoEncontrada !=0) System.out.println("La mano generada es una: " + stringManoGenerada);
         else System.out.println("No tuviste una buena mano");
 
-        System.out.println();
-        }while(debug != manoEncontrada);
+        //System.out.println();
+        //}while(debug != manoEncontrada);
 
     }
 
